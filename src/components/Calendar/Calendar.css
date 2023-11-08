@@ -1,0 +1,9 @@
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(8, auto);
+  border-style: solid;
+}
+
+.calendar .cell {
+  border-style: solid;
+}
