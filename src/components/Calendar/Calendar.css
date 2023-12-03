@@ -1,6 +1,6 @@
 .calendar {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: 0.75fr repeat(7, 1fr);
   gap: 4px;
   border: 4px solid white;
   margin: 2%;

@@ -1,50 +1,105 @@
-.cell {
+.template-title {
+  color: #92bf2e;
+  text-align: left;
+  margin: 2%;
+}
+
+.cell > * {
+  width: 100%;
+  height: 100%;
   background-color: white;
-}
-
-.cell .weekday-header {
-  color: white;
-  background-color: grey;
-  height: 100%;
-}
-
-.cell .week-number-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  background-color: lightgreen;
-}
-
-.cell .workout-cell {
-  background-color: black;
-  color: lightgreen;
   display: flex;
   flex-direction: column;
   aspect-ratio: 1/1;
-  align-items: center;
+  align-items: stretch;
+  justify-content: space-evenly;
   padding: 5%;
-  justify-content: center;
+  box-sizing: border-box;
 }
 
-.workout-cell label {
+.weekday-header {
+  color: white;
+  background-color: grey;
+  height: 100%;
+  font-weight: bold;
+  font-size: 20px;
+  box-sizing: border-box;
+}
+
+.week-number-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: #92bf2e;
+  color: black;
+}
+
+.week-label-text {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.week-label-number {
+  font-weight: bold;
+  font-size: 64px;
+}
+
+.workout-cell {
+  background-color: black;
+  color: #92bf2e;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.workout-name {
+  height: 50%;
+}
+
+.checkbox-container {
+  height: 50%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 0.5fr;
+  box-sizing: border-box;
+}
+
+.workout-cell .checkbox-container input[type="checkbox"] {
+  width: auto;
+  height: 80%;
+  margin: 0;
+  padding: 0;
+}
+
+.workout-cell .checkbox-container label {
   display: block;
-  margin: auto;
+  height: auto;
+  margin: 0 -4px 0 -10px;
+  padding: 0;
   font-size: 10px;
   color: white;
 }
 
-.workout-cell .checkbox-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.label-only-cell {
+  background-color: grey;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
 }
 
-.workout-cell .checkbox-container input[type="checkbox"] {
-  width: 100%;
-  height: 100%;
-  flex: 0 1 auto;
+.stat-cell {
+  background-color: #92bf2e;
 }
 
-.cell .label-only-cell {
+.stat-cell label {
+  font-size: 10px;
+  text-align: left;
+  float: left;
+  width: 40px;
+}
+
+.stat-cell input {
+  width: 80px;
+  float: center;
 }

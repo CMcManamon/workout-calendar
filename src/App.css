@@ -1,3 +1,7 @@
+* {
+  text-transform: uppercase;
+}
+
 body {
   background-color: black;
   margin: 0;
