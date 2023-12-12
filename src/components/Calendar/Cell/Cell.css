@@ -1,43 +1,19 @@
-.cell > * {
+.cell {
+}
+
+.workout-cell,
+.label-only-cell,
+.stat-cell {
   width: 100%;
   height: 100%;
-  background-color: white;
   display: flex;
   flex-direction: column;
   aspect-ratio: 1/1;
   align-items: stretch;
   justify-content: space-evenly;
-  padding: 5%;
+  margin: 0;
+  padding: 6px;
   box-sizing: border-box;
-}
-
-.weekday-header {
-  color: white;
-  background-color: grey;
-  height: 100%;
-  font-weight: bold;
-  font-size: 20px;
-  box-sizing: border-box;
-}
-
-.week-number-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  background-color: #92bf2e;
-  color: black;
-}
-
-.week-label-text {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.week-label-number {
-  font-weight: bold;
-  font-size: 64px;
 }
 
 .workout-cell {
@@ -96,4 +72,41 @@
 .stat-cell input {
   width: 80px;
   float: center;
+}
+
+@media (max-width: 1280px) {
+  .cell > .workout-cell,
+  .cell > .label-only-cell {
+    aspect-ratio: auto;
+    height: 20vh;
+    width: 100%;
+  }
+
+  .cell > .stat-cell {
+    height: 25vh;
+  }
+
+  .workout-name {
+    height: 20%;
+    margin-bottom: 6px;
+    justify-self: flex-start;
+  }
+
+  .workout-cell {
+    justify-content: space-evenly;
+  }
+
+  .checkbox-container {
+    height: 70%;
+  }
+
+  .workout-cell,
+  .label-only-cell,
+  .stat-cell {
+    height: calc(100% - 20px);
+  }
+
+  .stat-cell {
+    height: 120px;
+  }
 }
