@@ -63,13 +63,20 @@ const Calendar = ({ template }) => {
           break;
         default:
       }
-      row.push(<Cell key={7 * i + j}>{cell}</Cell>);
+      row.push(
+        <Cell key={j}>
+          <div className="day-of-week-header">
+            {Constants.ROW_HEADERS[(j % 7) + 1]}
+          </div>
+          {cell}
+        </Cell>
+      );
     }
     rows.push(row);
   }
 
   return (
-    <div>
+    <>
       <h1 className="workout-title">{workoutTitle}</h1>
       <div className="calendar">
         {Constants.ROW_HEADERS.map((day, index) => {
@@ -77,7 +84,7 @@ const Calendar = ({ template }) => {
         })}
         {rows}
       </div>
-    </div>
+    </>
   );
 };
 export default Calendar;
