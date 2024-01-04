@@ -1,3 +1,17 @@
+# Workout Calendar
+This app is inspired by (is a clone of) the paper calendar included in the BeachBody(tm) T25 Gamma DVD set. After years of use, my printout became too tattered to reuse, so I created this app to replicate the experience. Exercise days provide two exclusive checkboxes: Nailed It or Barely Made It. "STATurday" lets the user record their weekly measurements. State is saved to local storage.
+
+![Screenshot of calendar on desktop computer](https://github.com/CMcManamon/cmcmanamon.github.io/blob/d7b0fb300c2423739fc1292aec45206f77e12299/images/gallery/fulls/workout-calendar-full.png)
+![Screenshot of calendar on mobile device](https://github.com/CMcManamon/cmcmanamon.github.io/blob/d7b0fb300c2423739fc1292aec45206f77e12299/images/gallery/fulls/workout-calendar-mobile.png)
+
+Feature backlog:
+* Reset calendar option
+* Show all recorded stats
+* Template builder for creating new workouts
+* Share and load user-created templates
+* Improve responsive design on tablet-sized devices
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
