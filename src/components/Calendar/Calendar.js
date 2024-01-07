@@ -15,12 +15,14 @@ const Calendar = ({ template }) => {
       null
   );
 
+  // Update local storage any time the calendar changes (checkboxes, stats)
   useEffect(() => {
     localStorage.setItem(workout.title, JSON.stringify(workout));
   }, [workout]);
 
+  // This method gets passed down to child components
+  // Child sends back an updated day object when a change occurs
   const handleChange = (day, index) => {
-    console.log("handleChange", day);
     const days = workout.days.map((d, i) => {
       if (i === index) return day;
       else return d;
@@ -34,7 +36,7 @@ const Calendar = ({ template }) => {
     );
 
     if (agree) {
-      // Save all stats
+      // Save all stats before resetting calendar
       const stats =
         JSON.parse(localStorage.getItem(Constants.STORE_STATS)) || [];
       workout.days.forEach((day) => {
@@ -49,7 +51,6 @@ const Calendar = ({ template }) => {
         if (d.type === Constants.WORKOUT) {
           return { ...d, nailedIt: false, barelyMadeIt: false };
         } else if (d.type === Constants.STATS) {
-          console.log(d);
           return { ...d, weight: "", chest: "", waist: "", arm: "", thigh: "" };
         } else return d;
       });
@@ -114,7 +115,7 @@ const Calendar = ({ template }) => {
         </button>
       </div>
       <div className="calendar">
-        {Constants.ROW_HEADERS.map((day, index) => {
+        {Constants.ROW_HEADERS.map((day) => {
           return (
             <div className="weekday-header" key={day}>
               {day}
