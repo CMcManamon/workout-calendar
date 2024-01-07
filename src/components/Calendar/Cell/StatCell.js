@@ -1,73 +1,61 @@
 import "./Cell.css";
-import { useEffect, useState } from "react";
 
 const StatCell = (props) => {
   const { day, handleChange, id } = props;
-  const [weight, setWeight] = useState(day.weight);
-  const [chest, setChest] = useState(day.chest);
-  const [waist, setWaist] = useState(day.waist);
-  const [arm, setArm] = useState(day.arm);
-  const [thigh, setThigh] = useState(day.thigh);
 
-  useEffect(() => {
-    handleChange(
-      {
-        ...day,
-        weight: weight,
-        chest: chest,
-        waist: waist,
-        arm: arm,
-        thigh: thigh,
-      },
-      id
-    );
-  }, [weight, chest, waist, arm, thigh]);
-
+  const handleFieldChange = (event) => {
+    handleChange({ ...day, [event.target.name]: event.target.value }, id);
+  };
   return (
     <div className="stat-cell">
       <span>
-        <label for="stat-weight">Weight</label>
+        <label htmlFor="stat-weight">Weight</label>
         <input
           type="text"
+          name="weight"
           maxLength={10}
-          onChange={(e) => setWeight(e.target.value)}
-          value={weight}
+          onChange={handleFieldChange}
+          value={day.weight}
         />
       </span>
       <span>
-        <label for="stat-chest">Chest</label>
+        <label htmlFor="stat-chest">Chest</label>
         <input
           type="text"
+          name="chest"
           maxLength={10}
-          onChange={(e) => setChest(e.target.value)}
-          value={chest}
+          onChange={handleFieldChange}
+          value={day.chest}
         />
       </span>
       <span>
-        <label for="stat-waist">Waist</label>
+        <label htmlFor="stat-waist">Waist</label>
         <input
           type="text"
+          name="waist"
           maxLength={10}
-          onChange={(e) => setWaist(e.target.value)}
-          value={waist}
+          onChange={handleFieldChange}
+          value={day.waist}
         />
       </span>
       <span>
-        <label for="stat-arm">Arm</label>
+        <label htmlFor="stat-arm">Arm</label>
         <input
           type="text"
+          name="arm"
           maxLength={10}
-          onChange={(e) => setArm(e.target.value)}
-          value={arm}
+          onChange={handleFieldChange}
+          value={day.arm}
         />
       </span>
       <span>
-        <label for="stat-thigh">Thigh</label>
+        <label htmlFor="stat-thigh">Thigh</label>
         <input
           type="text"
+          name="thigh"
           maxLength={10}
-          onChange={(e) => setThigh(e.target.value)}
-          value={thigh}
+          onChange={handleFieldChange}
+          value={day.thigh}
         />
       </span>
     </div>

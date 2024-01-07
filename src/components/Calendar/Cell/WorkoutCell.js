@@ -1,31 +1,29 @@
 import "./Cell.css";
-import { useEffect, useState } from "react";
 
 const WorkoutCell = (props) => {
   const { day, handleChange, id } = props;
-  const [nailedIt, setNailedIt] = useState(day.nailedIt);
-  const [barelyMadeIt, setBarelyMadeIt] = useState(day.barelyMadeIt);
 
   const handleNailedIt = (event) => {
-    if (event.target.checked) {
-      setBarelyMadeIt(false);
-    }
-    setNailedIt(event.target.checked);
+    handleChange(
+      {
+        ...day,
+        nailedIt: event.target.checked,
+        barelyMadeIt: false,
+      },
+      id
+    );
   };
 
   const handleBarelyMadeIt = (event) => {
-    if (event.target.checked) {
-      setNailedIt(false);
-    }
-    setBarelyMadeIt(event.target.checked);
-  };
-
-  useEffect(() => {
     handleChange(
-      { ...day, nailedIt: nailedIt, barelyMadeIt: barelyMadeIt },
+      {
+        ...day,
+        nailedIt: false,
+        barelyMadeIt: event.target.checked,
+      },
       id
     );
-  }, [nailedIt, barelyMadeIt]);
+  };
 
   return (
     <div className="workout-cell">
@@ -33,19 +31,20 @@ const WorkoutCell = (props) => {
       <div className="checkbox-container">
         <input
           type="checkbox"
+          id=""
           name="nailed-it"
           onChange={handleNailedIt}
-          checked={nailedIt}
+          checked={day.nailedIt}
         ></input>
 
         <input
           type="checkbox"
           name="barely-made-it"
           onChange={handleBarelyMadeIt}
-          checked={barelyMadeIt}
+          checked={day.barelyMadeIt}
         ></input>
-        <label for="nailed-it">Nailed It</label>
-        <label for="barely-made-it">Barely Made It</label>
+        <label htmlFor="nailed-it">Nailed It</label>
+        <label htmlFor="barely-made-it">Barely Made It</label>
       </div>
     </div>
   );

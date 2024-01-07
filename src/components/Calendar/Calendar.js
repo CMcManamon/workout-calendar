@@ -20,11 +20,41 @@ const Calendar = ({ template }) => {
   }, [workout]);
 
   const handleChange = (day, index) => {
+    console.log("handleChange", day);
     const days = workout.days.map((d, i) => {
-      if (i == index) return day;
+      if (i === index) return day;
       else return d;
     });
     setWorkout({ ...workout, days: days });
+  };
+
+  const handleClear = () => {
+    const agree = window.confirm(
+      "Are you sure you want to clear the calendar?"
+    );
+
+    if (agree) {
+      // Save all stats
+      const stats =
+        JSON.parse(localStorage.getItem(Constants.STORE_STATS)) || [];
+      workout.days.forEach((day) => {
+        if (day.type === Constants.STATS) {
+          if (day.weight || day.chest || day.waist || day.arm || day.thigh) {
+            stats.push(day);
+          }
+        }
+      });
+      localStorage.setItem(Constants.STORE_STATS, JSON.stringify(stats));
+      let clean = workout.days.map((d, i) => {
+        if (d.type === Constants.WORKOUT) {
+          return { ...d, nailedIt: false, barelyMadeIt: false };
+        } else if (d.type === Constants.STATS) {
+          console.log(d);
+          return { ...d, weight: "", chest: "", waist: "", arm: "", thigh: "" };
+        } else return d;
+      });
+      setWorkout({ ...workout, days: clean });
+    }
   };
 
   if (workout === null || workout === undefined) return "";
@@ -38,7 +68,7 @@ const Calendar = ({ template }) => {
     let row = [];
     // Row header e.g. "Week 1"
     row.push(
-      <div className="week-number-header">
+      <div className="week-number-header" key={`week${i}`}>
         <div className="week-label-text">Week</div>
         <div className="week-label-number">{i + 1}</div>
       </div>
@@ -77,10 +107,19 @@ const Calendar = ({ template }) => {
 
   return (
     <>
-      <h1 className="workout-title">{workoutTitle}</h1>
+      <div className="title-container">
+        <h1 className="workout-title">{workoutTitle}</h1>
+        <button className="btn-clear" onClick={handleClear}>
+          Clear
+        </button>
+      </div>
       <div className="calendar">
         {Constants.ROW_HEADERS.map((day, index) => {
-          return <div className="weekday-header">{day}</div>;
+          return (
+            <div className="weekday-header" key={day}>
+              {day}
+            </div>
+          );
         })}
         {rows}
       </div>

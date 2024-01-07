@@ -7,6 +7,20 @@
   margin: 2%;
   background-color: white;
 }
+
+.title-container {
+  max-width: 1280px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-clear {
+  width: 84px;
+  height: 36px;
+  justify-self: flex-end;
+}
+
 .workout-title {
   color: #92bf2e;
   text-align: left;
@@ -64,6 +78,14 @@
 
   .week-number-header {
     border-top: 4px white solid;
+  }
+
+  .title-container {
+    flex-direction: column-reverse;
+  }
+
+  .btn-clear {
+    align-self: flex-end;
   }
 }
 

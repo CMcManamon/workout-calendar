@@ -2,22 +2,23 @@ import * as Constants from "../constants";
 
 // Takes a workout template and adds data fields for use with local storage
 export const expandTemplate = (template) => {
-  template.days.forEach((day) => {
+  let workout = JSON.parse(JSON.stringify(template)); // deep copy nested object
+  workout.days.forEach((day) => {
     switch (day.type) {
       case Constants.WORKOUT:
         day.nailedIt = false;
         day.barelyMadeIt = false;
         break;
       case Constants.STATS:
-        day.weight = null;
-        day.chest = null;
-        day.waist = null;
-        day.arm = null;
-        day.thigh = null;
+        day.weight = "";
+        day.chest = "";
+        day.waist = "";
+        day.arm = "";
+        day.thigh = "";
         break;
       case Constants.LABEL:
       default:
     }
   });
-  return template;
+  return workout;
 };
