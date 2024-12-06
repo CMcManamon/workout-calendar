@@ -1,6 +1,3 @@
-.cell {
-}
-
 .workout-cell,
 .label-only-cell,
 .stat-cell {
@@ -78,7 +75,7 @@
   .cell > .workout-cell,
   .cell > .label-only-cell {
     aspect-ratio: auto;
-    height: 20vh;
+    height: 8rem;
     width: 100%;
   }
 
@@ -98,6 +95,16 @@
 
   .checkbox-container {
     height: 70%;
+  }
+
+  .workout-cell .checkbox-container input[type="checkbox"] {
+    justify-self: center;
+    min-height: 3rem;
+    min-width: 3rem;
+  }
+
+  .workout-cell .checkbox-container label {
+    font-size: 1rem;
   }
 
   .workout-cell,
