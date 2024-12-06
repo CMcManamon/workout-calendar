@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/workout-calendar/static/css/main.2d744300.css",
+    "main.css": "/workout-calendar/static/css/main.3c72503c.css",
     "main.js": "/workout-calendar/static/js/main.c506c3ef.js",
     "static/js/787.6193632e.chunk.js": "/workout-calendar/static/js/787.6193632e.chunk.js",
     "index.html": "/workout-calendar/index.html",
-    "main.2d744300.css.map": "/workout-calendar/static/css/main.2d744300.css.map",
+    "main.3c72503c.css.map": "/workout-calendar/static/css/main.3c72503c.css.map",
     "main.c506c3ef.js.map": "/workout-calendar/static/js/main.c506c3ef.js.map",
     "787.6193632e.chunk.js.map": "/workout-calendar/static/js/787.6193632e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2d744300.css",
+    "static/css/main.3c72503c.css",
     "static/js/main.c506c3ef.js"
   ]
 }
